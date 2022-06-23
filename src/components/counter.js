@@ -1,3 +1,6 @@
+import { connect } from "react-redux/es/exports";
+import * as actions from "../actions";
+
 const Counter = ({ counter, inc, dec, rnd }) => {
 	return (
 		<div className="jumbotron text-center">
@@ -17,4 +20,6 @@ const Counter = ({ counter, inc, dec, rnd }) => {
 	);
 };
 
-export default Counter;
+const mapStateToProps = (state) => ({ counter: state });
+
+export default connect(mapStateToProps, actions)(Counter);
